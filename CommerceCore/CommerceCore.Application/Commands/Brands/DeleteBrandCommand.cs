@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace CommerceCore.Application.Commands.Brands
 {
-    internal class DeleteBrandCommand
+    public class DeleteBrandCommand : IRequest<bool>
     {
+        public Guid Id { get; set; }
+        public bool ForceDelete { get; set; } = false;
     }
 }

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace CommerceCore.Application.Commands.Categories
 {
-    internal class DeleteCategoryCommand
+    public class DeleteCategoryCommand : IRequest<bool>
     {
+        public Guid Id { get; set; }
+        public bool ForceDelete { get; set; } = false;
     }
 }

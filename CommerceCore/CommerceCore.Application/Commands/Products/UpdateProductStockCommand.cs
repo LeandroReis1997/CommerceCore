@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommerceCore.Application.DTOs.Products;
+using MediatR;
 
 namespace CommerceCore.Application.Commands.Products
 {
-    internal class UpdateProductStockCommand
+    public class UpdateProductStockCommand : IRequest<ProductDto>
     {
+        public Guid ProductId { get; set; }
+        public int NewQuantity { get; set; }
+        public string? Reason { get; set; }
     }
 }

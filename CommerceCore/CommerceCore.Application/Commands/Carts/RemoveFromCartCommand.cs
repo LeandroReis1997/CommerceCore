@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace CommerceCore.Application.Commands.Carts
 {
-    internal class RemoveFromCartCommand
+    public class RemoveFromCartCommand : IRequest<bool>
     {
+        public Guid CartItemId { get; set; }
+        public Guid UserId { get; set; } // Segurança: só pode remover do próprio carrinho
     }
 }

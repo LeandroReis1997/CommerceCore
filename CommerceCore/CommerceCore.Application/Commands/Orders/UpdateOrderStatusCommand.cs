@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommerceCore.Application.DTOs.Orders;
+using CommerceCore.Domain.Enums;
+using MediatR;
 
 namespace CommerceCore.Application.Commands.Orders
 {
-    internal class UpdateOrderStatusCommand
+    public class UpdateOrderStatusCommand : IRequest<OrderDto>
     {
+        public Guid Id { get; set; }
+        public OrderStatus Status { get; set; }
+        public string? Notes { get; set; }
+        public Guid UpdatedBy { get; set; } // Usuário que está atualizando
     }
 }

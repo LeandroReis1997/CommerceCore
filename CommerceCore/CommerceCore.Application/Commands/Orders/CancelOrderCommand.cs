@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommerceCore.Application.DTOs.Orders;
+using MediatR;
 
 namespace CommerceCore.Application.Commands.Orders
 {
-    internal class CancelOrderCommand
+    public class CancelOrderCommand : IRequest<OrderDto>
     {
+        public Guid Id { get; set; }
+        public string Reason { get; set; } = string.Empty;
+        public Guid CancelledBy { get; set; } // Quem cancelou (cliente ou admin)
+        public bool RefundPayments { get; set; } = true;
     }
 }
