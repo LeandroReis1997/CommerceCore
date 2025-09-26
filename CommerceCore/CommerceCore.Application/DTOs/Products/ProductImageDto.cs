@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommerceCore.Application.DTOs.Common;
 
 namespace CommerceCore.Application.DTOs.Products
 {
-    internal class ProductImageDto
+    public class ProductImageDto : BaseDto
     {
+        public Guid ProductId { get; set; }
+        public string ImageUrl { get; set; } = string.Empty;
+        public string AltText { get; set; } = string.Empty;
+        public int DisplayOrder { get; set; }
+        public bool IsMain { get; set; }
     }
 }

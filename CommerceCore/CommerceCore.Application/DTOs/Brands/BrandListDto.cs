@@ -2,12 +2,10 @@
 
 namespace CommerceCore.Application.DTOs.Brands
 {
-    public class BrandDto : BaseDto
+    public class BrandListDto : BaseDto
     {
         public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
         public string? LogoUrl { get; set; }
-        public string? Website { get; set; }
         public bool IsActive { get; set; }
         public int ProductCount { get; set; }
     }
