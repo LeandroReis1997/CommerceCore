@@ -69,8 +69,8 @@ namespace CommerceCore.Domain.Entities
         // Completa o pagamento (aprovado)
         public void Complete()
         {
-            ValidateStatusTransition(PaymentStatus.Completed); // Verifica se transição é válida
-            ChangeStatus(PaymentStatus.Completed);            // Muda status
+            ValidateStatusTransition(PaymentStatus.Confirmed); // Verifica se transição é válida
+            ChangeStatus(PaymentStatus.Confirmed);            // Muda status
             SetProcessedAt();                                 // Define data de processamento
         }
 
@@ -129,7 +129,7 @@ namespace CommerceCore.Domain.Entities
         public bool IsProcessing() => Status == PaymentStatus.Processing;
 
         // Verifica se pagamento foi completado
-        public bool IsCompleted() => Status == PaymentStatus.Completed;
+        public bool IsCompleted() => Status == PaymentStatus.Confirmed;
 
         // Verifica se pagamento falhou
         public bool IsFailed() => Status == PaymentStatus.Failed;
@@ -262,8 +262,8 @@ namespace CommerceCore.Domain.Entities
             return Status switch
             {
                 PaymentStatus.Pending => [PaymentStatus.Processing, PaymentStatus.Cancelled],
-                PaymentStatus.Processing => [PaymentStatus.Completed, PaymentStatus.Failed, PaymentStatus.Cancelled],
-                PaymentStatus.Completed => [PaymentStatus.Refunded],
+                PaymentStatus.Processing => [PaymentStatus.Confirmed, PaymentStatus.Failed, PaymentStatus.Cancelled],
+                PaymentStatus.Confirmed => [PaymentStatus.Refunded],
                 PaymentStatus.Failed => [], // Status final
                 PaymentStatus.Cancelled => [], // Status final
                 PaymentStatus.Refunded => [], // Status final

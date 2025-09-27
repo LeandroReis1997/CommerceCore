@@ -226,7 +226,7 @@ namespace CommerceCore.Domain.Entities
 
         // Calcula valor total pago
         private decimal CalculatePaidAmount() =>
-            Payments.Where(p => p.Status == PaymentStatus.Completed).Sum(p => p.Amount);
+            Payments.Where(p => p.Status == PaymentStatus.Confirmed).Sum(p => p.Amount);
 
         #endregion
 

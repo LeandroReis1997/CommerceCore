@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommerceCore.Application.DTOs.Users;
+using MediatR;
 
 namespace CommerceCore.Application.Queries.Users
 {
-    internal class GetUserByIdQuery
+    public class GetUserByIdQuery : IRequest<UserDto?>
     {
+        public Guid Id { get; set; }
+        public bool IncludeProfile { get; set; } = false;
+        public bool IncludeOrderCount { get; set; } = true;
     }
 }

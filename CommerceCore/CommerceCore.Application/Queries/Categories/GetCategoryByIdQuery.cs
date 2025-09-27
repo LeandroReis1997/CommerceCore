@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommerceCore.Application.DTOs.Categories;
+using MediatR;
 
 namespace CommerceCore.Application.Queries.Categories
 {
-    internal class GetCategoryByIdQuery
+    public class GetCategoryByIdQuery : IRequest<CategoryDto?>
     {
+        public Guid Id { get; set; }
+        public bool IncludeSubcategories { get; set; } = false;
+        public bool IncludeProductCount { get; set; } = true;
     }
 }

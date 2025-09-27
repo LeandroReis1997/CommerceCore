@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CommerceCore.Application.Queries.Products
 {
-    public class GetProductsQuery : IRequest<PagedResultDto<ProductDto>>
+    public class GetProductsQuery : IRequest<PagedResultDto<ProductListDto>>
     {
         // Número da página para paginação (começa em 1)
         public int Page { get; set; } = 1;

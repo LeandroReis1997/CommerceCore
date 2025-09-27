@@ -27,13 +27,13 @@ namespace CommerceCore.Application.DTOs.Orders
         {
             PaymentStatus.Pending => "Pendente",
             PaymentStatus.Processing => "Processando",
-            PaymentStatus.Completed => "Aprovado",
+            PaymentStatus.Confirmed => "Aprovado",
             PaymentStatus.Failed => "Rejeitado",
             PaymentStatus.Cancelled => "Cancelado",
             _ => "Desconhecido"
         };
 
-        public bool IsCompleted => Status == PaymentStatus.Completed;
+        public bool IsCompleted => Status == PaymentStatus.Confirmed;
         public bool IsPending => Status == PaymentStatus.Pending || Status == PaymentStatus.Processing;
         public bool IsFailed => Status == PaymentStatus.Failed || Status == PaymentStatus.Cancelled;
     }
